@@ -45,21 +45,24 @@ wordcloud(r_elexis_text_corpus,min.freq=2,max.words=100, random.order=T, colors=
 
    ### Fig.1 Wordcloud of #elexis_eu (retrieved 29.07.2018)
 
-According to Figure 1, the examined hashtag is related to the concepts of lexicography, clarineric along with the general field of research. Based on the aforementioned wordcloud the concept of “elexis” can be explained or understood easier simply by observing the words written in bigger letters. Since the project is new in the world of Twitter and consequently, in the world of hashtags we assume that additional information/words will be added as the project continues to grow. 
-The concept of #elexis_eu is associated with digital humanities, which is a fast growing domain within the academia. For this reason, it would also be interesting to investigate the words related to this field as well as the general concepts surrounding it. Applying the same codes into the hashtag of digitalhumanities, the following wordcloud is created:
+According to Figure 1, the examined hashtag is related to the concepts of *lexicography*, *clarineric* along with the general field of *research*. Based on the aforementioned wordcloud the concept of “elexis” can be explained or understood easier simply by observing the words written in bigger letters. Since the project is new in the world of Twitter and consequently, in the world of hashtags we assume that additional information/words will be added as the project continues to grow. 
+The concept of #elexis_eu is associated with digital humanities, which is a fast growing domain within the academia. For this reason, it would also be interesting to investigate the words related to this field as well as the general concepts surrounding it. Applying the same codes into the hashtag of *digitalhumanities*, the following wordcloud is created:
 
 [![digital_humanities_better.png](https://s15.postimg.cc/m4d3m0evv/digital_humanities_better.png)](https://postimg.cc/image/907j9bmtz/)
 ### Fig.2. Wordcloud of #digitalhumanities (retrieved 09.08.2018)
 
-The aforementioned wordcloud suggests that #digitalhumanities is a popular topic among the internet community of Twitter. In particular, it can be found out that this hashtag is related to the field of research, data handling and data mining. It can also be seen that in the center of the schema the words-phrases, such as  digital humanities, now, registrations are the ones which are immediately evident, which could suggest that these are the main topic of interest of the twitter users. Concepts such as programming, models, annotation etc., on the other hand, can be spotted with smaller letters away from the circle’s core. This could indicate that users do not often concern themselves with these concepts and therefore are used less frequently. Having this information about the most frequent words in this hashtag  it would be interesting to discover which are these exact words.
+The aforementioned wordcloud suggests that #digitalhumanities is a popular topic among the internet community of Twitter. In particular, it can be found out that this hashtag is related to the field of *research, data handling* and *data mining*. It can also be seen that in the center of the schema the words-phrases, such as  *digital humanities, now, registrations* are the ones which are immediately evident, which could suggest that these are the main topic of interest of the twitter users. Concepts such as programming, models, annotation etc., on the other hand, can be spotted with smaller letters away from the circle’s core. This could indicate that users do not often concern themselves with these concepts and therefore are used less frequently. Having this information about the most frequent words in this hashtag  it would be interesting to discover which are these exact words.
 
 [![most_frequent_words.png](https://s15.postimg.cc/dm3nhpqdn/most_frequent_words.png)](https://postimg.cc/image/8aoqx04av/)
 
 ### Fig.3. Most frequent terms of #digitalhumanities in 2000 tweets (retrieved 09.08.2018)
 
-Figure 3 presents the terms used in Twitter with frequency >=90. The most frequent word/phrase is the hashtag itself  (i.e. digitalhumanities) with 800 instances in the sample of 2000 tweets. Following this phrase the words digital and humanities appear with approximately 350 and 225 appearances in the course of 2000 tweets, respectively. According to the diagram the words research and dh  are less frequent in the examined sample.
+Figure 3 presents the terms used in Twitter with frequency >=90. The most frequent word/phrase is the hashtag itself  (i.e. digitalhumanities) with 800 instances in the sample of 2000 tweets. Following this phrase the words *digital* and *humanities* appear with approximately 350 and 225 appearances in the course of 2000 tweets, respectively. According to the diagram the words *research* and *dh*  are less frequent in the examined sample.
 Concerning the hashtag of digital humanities more information can be retrieved due to the vast amount of Tweets. One example could be to research the word associations of some terms related to the field of digital humanities. To do so, the following code can be implemented:
+```
 findAssocs(tdm, "research", 0.2)
+```
+
 The aforementioned code can be used in order to detect the word associations within a term matrix. Inside the brackets, the first element represents the data set (i.e. term matrix), the second one the word or phrase that we are interested in and the last one indicates the correlation limit. Applying the code for the word “research” we receive these results:
 
 ```
@@ -131,6 +134,8 @@ The result indicate that there are 2 negative tweets about digital humanities, 1
 
 Figure 5 illustrates the scores of sentiment analysis for the 2000 tweets provided by Twitter for the time period 30 July-09 August. The y axis indicates the score of the analysis from 0-100, and the x axis illustrates the date that the tweets are published. According to the graph above on 5th August the line dramatically falls, which could possibly suggest the appearance of the negative tweets.  Asking R for the polarity scores of the sample, it is possible for us to extract the negative tweets from the sample. By doing so, we receive the two negative tweets:
 
-“todays #followwomenwednesday =people whose work I've been looking at today as I try to find #womenshistory in #digitalhumanities @xxxxxx @xxxxxx @xxxxx @xxxxx @xxxxx (lots don't do twitter apparently!)”
+*“todays #followwomenwednesday =people whose work I've been looking at today as I try to find #womenshistory in #digitalhumanities @xxxxxx @xxxxxx @xxxxx @xxxxx @xxxxx (lots don't do twitter apparently!)”*
 
-The above-mentioned tweet has been retweeted twice in the sample and is considered negative since it includes the word don’t  which is a marker of negation. 
+The above-mentioned tweet has been retweeted twice in the sample and is considered negative since it includes the phrase *don’t*  which is a marker of negation. 
+
+All in all it can be concluded that, Twitter is a useful tool in the field of research. Researchers can apply the aforementioned-codes in order to retrieve information about the current trends. We hope that in the future Twitter will allow its users to investigate data which have been published longer than one week ago. Thus, a diachronic analysis of tweets from different periods of time might be conducted. 
