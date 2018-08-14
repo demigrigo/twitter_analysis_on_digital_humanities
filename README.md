@@ -1,6 +1,4 @@
-# twitter_analysis_on_digital_humanities
-R tool for twitter analysis on dh
-## In the world of hashtags
+# In the world of hashtags
 Hashtags are considered to be a form of labelling which is related to the core meaning/main attribute of the post published online.  Twitter was one of the innovative social media which firstly introduced #hashtag to the world back in 2006. Now 12 years later #hashtag has evolved into a very useful tool for political analytics, advertisement companies and other forms of analysis. Implementing this new trend into our project we would like to find out what people say about #elexis_eu and #digitalhumanities or what the aforementioned concepts are about.
 In order to retrieve the appropriate results for this analysis two tools were put in use, namely Twitter and R statistical program. The first one is the source of our data and the second one is the program which will be employed with the aim of analyzing the data. The most important thing for this project is the creation of a code which will be accurate enough to acquire the relevant results. To do so, firstly, we have to install the needed packages (viz. Twitter, wordcloud and text mining packages) into R and then, to set up our account for our project. Consider the following:
 ```install.packages("twitteR")
@@ -43,17 +41,19 @@ library(RColorBrewer)
 pal2 <- brewer.pal(8,"Dark2")
 wordcloud(r_elexis_text_corpus,min.freq=2,max.words=100, random.order=T, colors='pal2')
 ```
-![alt text](C:\demig\OneDrive\Υπολογιστής\lexicography better.png "Title")
+[![lexicography_better.png](https://s15.postimg.cc/hh71kjp1n/lexicography_better.png)](https://postimg.cc/image/gewv20687/)
 
-### Fig.1 Wordcloud of #elexis_eu (retrieved 29.07.2018)
+   ### Fig.1 Wordcloud of #elexis_eu (retrieved 29.07.2018)
 
 According to Figure 1, the examined hashtag is related to the concepts of lexicography, clarineric along with the general field of research. Based on the aforementioned wordcloud the concept of “elexis” can be explained or understood easier simply by observing the words written in bigger letters. Since the project is new in the world of Twitter and consequently, in the world of hashtags we assume that additional information/words will be added as the project continues to grow. 
 The concept of #elexis_eu is associated with digital humanities, which is a fast growing domain within the academia. For this reason, it would also be interesting to investigate the words related to this field as well as the general concepts surrounding it. Applying the same codes into the hashtag of digitalhumanities, the following wordcloud is created:
 
-
+[![digital_humanities_better.png](https://s15.postimg.cc/m4d3m0evv/digital_humanities_better.png)](https://postimg.cc/image/907j9bmtz/)
 ### Fig.2. Wordcloud of #digitalhumanities (retrieved 09.08.2018)
 
 The aforementioned wordcloud suggests that #digitalhumanities is a popular topic among the internet community of Twitter. In particular, it can be found out that this hashtag is related to the field of research, data handling and data mining. It can also be seen that in the center of the schema the words-phrases, such as  digital humanities, now, registrations are the ones which are immediately evident, which could suggest that these are the main topic of interest of the twitter users. Concepts such as programming, models, annotation etc., on the other hand, can be spotted with smaller letters away from the circle’s core. This could indicate that users do not often concern themselves with these concepts and therefore are used less frequently. Having this information about the most frequent words in this hashtag  it would be interesting to discover which are these exact words.
+
+[![most_frequent_words.png](https://s15.postimg.cc/dm3nhpqdn/most_frequent_words.png)](https://postimg.cc/image/8aoqx04av/)
 
 ### Fig.3. Most frequent terms of #digitalhumanities in 2000 tweets (retrieved 09.08.2018)
 
@@ -100,6 +100,8 @@ plot(tdm, terms = freq.terms, corThreshold = 0.1, weighting = T)
 
 The following figure illustrates this relation:
 
+[![word_associations_09082018_tweets.png](https://s15.postimg.cc/xgpp3v863/word_associations_09082018_tweets.png)](https://postimg.cc/image/eodu0abrr/)
+
 ### Fig.4. Network of terms in relation to  #digitalhumanities (retrieved 09.08.2018)
 
 Figure 4 reveals the word associations and possible collocations that users have typed in their tweets. In particular, it can be  noted that the nodes written in bold represent the strongest correlations among words such as “historical job”, “dariahteach and course”. The nodes that are less bold indicate “weak” associations, but still strong enough to evident on the network. In this sense, it can be understood that “r” (presumably the computer program) is related both to “science” as well as to “open”.
@@ -122,6 +124,8 @@ negative  neutral positive
 ```
 
 The result indicate that there are 2 negative tweets about digital humanities, 1341 are the negative tweets, whereas 657 are the positive ones. Plotting these tweets into a graph will be appeared as it follows:
+
+[![sentiment_analysis.png](https://s15.postimg.cc/9r09fcpa3/sentiment_analysis.png)](https://postimg.cc/image/8oq2wt6gn/)
 
 ### Fig.5. Sentiment analysis for #digitalhumanities (retrieved 09.08.2018) 
 
