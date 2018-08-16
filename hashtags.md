@@ -42,7 +42,7 @@ library(RColorBrewer)
 pal2 <- brewer.pal(8,"Dark2")
 wordcloud(r_elexis_text_corpus,min.freq=2,max.words=100, random.order=T, colors='pal2')
 ```
-![image alt text](https://github.com/demigrigo/twitter_analysis_on_digital_humanities/blob/master/elexis_better.png)
+![image alt text](https://github.com/demigrigo/twitter_analysis_on_digital_humanities/blob/master/elexis.png)
    ### Fig.1 Wordcloud of #elexis_eu (retrieved 29.07.2018)
 
 According to Figure 1, the examined hashtag is related to the concepts of *lexicography*, *clarineric* along with the general field of *research*. Based on the aforementioned wordcloud the concept of “elexis” can be explained or understood easier simply by observing the words written in bigger letters. Since the project is new in the world of Twitter and consequently, in the world of hashtags we assume that additional information/words will be added as the project continues to grow. 
