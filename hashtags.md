@@ -24,6 +24,7 @@ The first line represents the search in Twitter for the #elexis_eu and the numbe
 ```
 r_elexis_text_corpus <- Corpus(VectorSource(r_elexis_text))
 r_elexis_text_corpus<- tm_map(r_elexis_text_corpus, content_transformer(function(x) iconv(x, to='UTF-8-MAC', sub='byte'))
+
 ```
 Additionally, before requesting the final wordcloud it is better to make some adjustments to the text (e.g. transform the text into  lowercase) as well as remove some words. For this reason, the following codes are considered useful:
 ```
@@ -41,19 +42,18 @@ library(RColorBrewer)
 pal2 <- brewer.pal(8,"Dark2")
 wordcloud(r_elexis_text_corpus,min.freq=2,max.words=100, random.order=T, colors='pal2')
 ```
-[![lexicography_better.png](https://s15.postimg.cc/hh71kjp1n/lexicography_better.png)](https://postimg.cc/image/gewv20687/)
-
+![image alt text](https://github.com/demigrigo/twitter_analysis_on_digital_humanities/blob/master/elexis_better.png)
    ### Fig.1 Wordcloud of #elexis_eu (retrieved 29.07.2018)
 
 According to Figure 1, the examined hashtag is related to the concepts of *lexicography*, *clarineric* along with the general field of *research*. Based on the aforementioned wordcloud the concept of “elexis” can be explained or understood easier simply by observing the words written in bigger letters. Since the project is new in the world of Twitter and consequently, in the world of hashtags we assume that additional information/words will be added as the project continues to grow. 
 The concept of #elexis_eu is associated with digital humanities, which is a fast growing domain within the academia. For this reason, it would also be interesting to investigate the words related to this field as well as the general concepts surrounding it. Applying the same codes into the hashtag of *digitalhumanities*, the following wordcloud is created:
 
-[![digital_humanities_better.png](https://s15.postimg.cc/m4d3m0evv/digital_humanities_better.png)](https://postimg.cc/image/907j9bmtz/)
+![image alt text](https://github.com/demigrigo/twitter_analysis_on_digital_humanities/blob/master/digital%20humanities%20better.png)
 ### Fig.2. Wordcloud of #digitalhumanities (retrieved 09.08.2018)
 
 The aforementioned wordcloud suggests that #digitalhumanities is a popular topic among the internet community of Twitter. In particular, it can be found out that this hashtag is related to the field of *research, data handling* and *data mining*. It can also be seen that in the center of the schema the words-phrases, such as  *digital humanities, now, registrations* are the ones which are immediately evident, which could suggest that these are the main topic of interest of the twitter users. Concepts such as programming, models, annotation etc., on the other hand, can be spotted with smaller letters away from the circle’s core. This could indicate that users do not often concern themselves with these concepts and therefore are used less frequently. Having this information about the most frequent words in this hashtag  it would be interesting to discover which are these exact words.
 
-[![most_frequent_words.png](https://s15.postimg.cc/dm3nhpqdn/most_frequent_words.png)](https://postimg.cc/image/8aoqx04av/)
+![image alt text](https://github.com/demigrigo/twitter_analysis_on_digital_humanities/blob/master/most%20frequent%20words.png)
 
 ### Fig.3. Most frequent terms of #digitalhumanities in 2000 tweets (retrieved 09.08.2018)
 
@@ -103,7 +103,7 @@ plot(tdm, terms = freq.terms, corThreshold = 0.1, weighting = T)
 
 The following figure illustrates this relation:
 
-[![word_associations_09082018_tweets.png](https://s15.postimg.cc/xgpp3v863/word_associations_09082018_tweets.png)](https://postimg.cc/image/eodu0abrr/)
+![image alt text](https://github.com/demigrigo/twitter_analysis_on_digital_humanities/blob/master/word%20associations%2009082018%20tweets.png)
 
 ### Fig.4. Network of terms in relation to  #digitalhumanities (retrieved 09.08.2018)
 
@@ -128,7 +128,7 @@ negative  neutral positive
 
 The result indicate that there are 2 negative tweets about digital humanities, 1341 are the negative tweets, whereas 657 are the positive ones. Plotting these tweets into a graph will be appeared as it follows:
 
-[![sentiment_analysis.png](https://s15.postimg.cc/9r09fcpa3/sentiment_analysis.png)](https://postimg.cc/image/8oq2wt6gn/)
+![image alt text](https://github.com/demigrigo/twitter_analysis_on_digital_humanities/blob/master/sentiment%20analysis.png)
 
 ### Fig.5. Sentiment analysis for #digitalhumanities (retrieved 09.08.2018) 
 
