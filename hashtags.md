@@ -139,3 +139,9 @@ Figure 5 illustrates the scores of sentiment analysis for the 2000 tweets provid
 The above-mentioned tweet has been retweeted twice in the sample and is considered negative since it includes the phrase *don’t*  which is a marker of negation. 
 
 All in all it can be concluded that, Twitter is a useful tool in the field of research. Researchers can apply the aforementioned codes in order to retrieve information about the current trends. We hope that in the future Twitter will allow its users to investigate data which have been published longer than one week ago. Thus, a diachronic analysis of tweets from different periods of time might be conducted. 
+
+
+
+
+
+By Dimitra Grigoriou. Current work was a part of an internship at the ACDH.
