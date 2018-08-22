@@ -1,7 +1,8 @@
 # In the world of hashtags
 Hashtags are considered to be a form of labelling which is related to the core meaning/main attribute of the post published online.  Twitter was one of the innovative social media which firstly introduced #hashtag to the world back in 2006. Now 12 years later #hashtag has evolved into a very useful tool for political analytics, advertisement companies and other forms of analysis. Implementing this new trend into our project we would like to find out what people say about #elexis_eu and #digitalhumanities or what the aforementioned concepts are about.
 In order to retrieve the appropriate results for this analysis two tools were put in use, namely Twitter and R statistical program. The first one is the source of our data and the second one is the program which will be employed with the aim of analyzing the data. The most important thing for this project is the creation of a code which will be accurate enough to acquire the relevant results. To do so, firstly, we have to install the needed packages (viz. Twitter, wordcloud and text mining packages) into R and then, to set up our account for our project. Consider the following:
-```install.packages("twitteR")
+``` r
+install.packages("twitteR")
 install.packages("wordcloud")
 install.packages("tm")
 
@@ -16,18 +17,18 @@ access_secret <- 'xxxxxx'
 setup_twitter_oauth(consumer_key,consumer_secret, access_token, access_secret)
 ```
  Having installed and set up our Twitter account in R, the search of our first hashtag, namely #elexis_eu takes place. For this reason, the following code is necessary for R:
-```
+``` r
 r_elexis <- searchTwitter("#elexis_eu", n=3000)
 r_elexis_text <- sapply(r_elexis, function(x) x$getText())
 ```
 The first line represents the search in Twitter for the #elexis_eu and the number of tweets that it is needed for this project. For this hashtag the maximum amount of tweets is needed and thus, 3000 was considered suitable. The second line of this code transforms our data into a text. Despite having assigned 3000 entrances of the research, the system offers only 50 tweets available.  The next step of this procedure is the creation of the corpus where deeper investigation takes place.  In order to achieve it, the following code is put in use:
-```
+``` r
 r_elexis_text_corpus <- Corpus(VectorSource(r_elexis_text))
 r_elexis_text_corpus<- tm_map(r_elexis_text_corpus, content_transformer(function(x) iconv(x, to='UTF-8-MAC', sub='byte'))
 
 ```
 Additionally, before requesting the final wordcloud it is better to make some adjustments to the text (e.g. transform the text into  lowercase) as well as remove some words. For this reason, the following codes are considered useful:
-```
+``` r
 r_elexis_text_corpus <- tm_map(r_elexis_text_corpus, content_transformer(tolower)) 
 r_elexis_text_corpus <- tm_map(r_elexis_text_corpus, removePunctuation)
 r_elexis_text_corpus = tm_map(r_elexis_text_corpus, trimws)
@@ -36,7 +37,7 @@ r_elexis_text_corpus <- tm_map(r_elexis_text_corpus, function(x)removeWords(x,st
 ```
 
 Having cleaned up the unnecessary information from the corpus, it is time to create the wordcloud. The following code is an example of how the final wordcloud has been constructed:
-```
+``` r
 install.packages("RColorBrewer")
 library(RColorBrewer)
 pal2 <- brewer.pal(8,"Dark2")
@@ -65,7 +66,7 @@ findAssocs(tdm, "research", 0.2)
 
 The aforementioned code can be used in order to detect the word associations within a term matrix. Inside the brackets, the first element represents the data set (i.e. term matrix), the second one the word or phrase that we are interested in and the last one indicates the correlation limit. Applying the code for the word “research” we receive these results:
 
-```
+``` r
 $`research`
 germany      kevinbgunn              math       brno
   0.35        0.32                    0.21       0.21
@@ -75,7 +76,7 @@ germany      kevinbgunn              math       brno
 The above results show that the highest and the lowest correlation scores of the word “research” based on our data. To begin with, the word “research” is highly associated with the country of Germany by 0.35. It has also strong correlation with the researcher Kevin B. Gunn. The lowest scores, on the other hand, can be found in terms such as “math” and “brno”. Of course, the list offered in R is much longer and it is worth investigating even further.
 In similar way, we researched for the terms “data” and “dh” (i.e. abbreviated form for digital humanities). Here are some of the highest and lowest results for each of the terms:
 
-```
+``` r
 $`data`
 britishlibrary     journalism         miaout
 0.80               0.80               0.80
@@ -93,7 +94,7 @@ quantifying        mickikaufman       mappproject
 As far as the first results are concerned, it can be said that “data” are strongly with the British library and journalism It is also interesting to see that “miaout” is strongly correlated with the concept of data, as this term correspond to the username of Dr Mia Ridge who is the digital curator of the British library which offers collections of data. Less frequent are the terms such as “armed”, and “acledinfo” which stands for Armed Conflict Location and Event Data information. Interpreting the results of word correlations of the acronym “dh” (i.e. digital humanities), it can be pointed out that Jing Chen is strongly related to this concept, as he recently acquired a PhD on this field, as well as the acronym “jclc” (i.e. Journal of Chinese Literature and Culture) which has some articles concerning digital humanities. Terms namely “quantifying” and “mickikaufman” have proven to be less associated with the concept under investigation.
 As final step related to word associations and digital humanities is the visualization of the terms into a wordnet, by applying this code:
 
-```
+``` r
 source("http://bioconductor.org//biocLite.R")
 biocLite("Rgraphviz")
 install.packages (“Rgraphviz”)
@@ -111,7 +112,7 @@ Figure 4 reveals the word associations and possible collocations that users have
 In the world of hashtags there is another trend in the field of research, namely the sentiment analysis. An attempt will be made to detect the content of the tweets concerning #digitalhumanities and to classify it into positive, negative or neutral, depending on the content of the tweets.  By applying this code, the appropriate results are obtained:
 
 
-```
+``` r
 require(devtools)
 install_github("sentiment140", "okugami79")
 library(sentiment)
@@ -121,7 +122,7 @@ table(sentiments$polarity)
 
 The results retrieved from the aforementioned code show the following: 
 
-```
+``` r
 negative  neutral positive 
        2     1341      657
 ```
